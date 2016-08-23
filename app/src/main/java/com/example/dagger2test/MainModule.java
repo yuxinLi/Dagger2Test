@@ -1,5 +1,7 @@
 package com.example.dagger2test;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -12,16 +14,31 @@ import dagger.Provides;
 @Module
 public class MainModule {
 
-    MainView mainView;
+    String test;
 
-    public MainModule(MainView mainView){
+    MainView mainView;
+    MainPresenter mainPresenter;
+
+    public MainModule(MainView mainView , MainPresenter mainPresenter){
         this.mainView = mainView;
+        this.mainPresenter = mainPresenter;
     }
 
 
     @Provides
     public MainView provideMainView(){
         return mainView;
+    }
+
+    @Provides
+    @Singleton
+    public MainPresenter provideMainPresenter(){
+        return mainPresenter;
+    }
+
+    @Provides
+    public String provideName(){
+        return test;
     }
 
 }

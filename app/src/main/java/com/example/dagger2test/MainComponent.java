@@ -1,5 +1,7 @@
 package com.example.dagger2test;
 
+import javax.inject.Singleton;
+
 import dagger.Component;
 
 /**
@@ -8,6 +10,7 @@ import dagger.Component;
  * 时    间：2016/8/18
  */
 
+@Singleton
 @Component(
         modules = {MainModule.class}
 )
